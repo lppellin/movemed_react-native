@@ -3,6 +3,7 @@ import { CommonActions, NavigationProp } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import { Button, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import Header from "../components/Header";
 
 export default function Home({ navigation }: { navigation: NavigationProp<any> }) {
 
@@ -26,6 +27,8 @@ export default function Home({ navigation }: { navigation: NavigationProp<any> }
         <SafeAreaView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 
             <StatusBar style="auto" />
+
+            <Header />
 
             <Text>Home</Text>
 
