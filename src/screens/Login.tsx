@@ -3,7 +3,7 @@ import { CommonActions, NavigationProp } from "@react-navigation/native";
 import axios from "axios";
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
-import { Alert, Image, SafeAreaView, Text, TextInput, TouchableOpacity } from "react-native";
+import { Alert, Image, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity } from "react-native";
 
 export default function Login({ navigation }: { navigation: NavigationProp<any> }) {
 
@@ -30,10 +30,10 @@ export default function Login({ navigation }: { navigation: NavigationProp<any> 
 
     function handleLogin() {
         axios.post(process.env.EXPO_PUBLIC_API_URL + '/login', {
-            // email: 'email',
-            // password: 'password'
-            email: 'admin@gmail.com',
-            password: '123456'
+            email,
+            password
+            // email: 'admin@gmail.com',
+            // password: '123456'
         })
             .then(async (response) => {
                 console.log(response.data);
@@ -76,16 +76,19 @@ export default function Login({ navigation }: { navigation: NavigationProp<any> 
 
             <StatusBar style="auto" />
 
-            {/* <Image source={} /> */}
+            <Image  />
+            {/* adicionar imagem */}
 
             <Text>Email</Text>
             <TextInput
+                style={styles.input}
                 value={email}
                 onChangeText={setEmail}
             />
 
             <Text>Senha</Text>
             <TextInput
+                style={styles.input}
                 value={password}
                 onChangeText={setPassword}
                 secureTextEntry
@@ -99,3 +102,13 @@ export default function Login({ navigation }: { navigation: NavigationProp<any> 
         </SafeAreaView>
     )
 }
+
+const styles = StyleSheet.create({
+    input: {
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+        width: 200
+    },
+});
