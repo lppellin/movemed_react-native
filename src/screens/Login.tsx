@@ -76,7 +76,8 @@ export default function Login({ navigation }: { navigation: NavigationProp<any> 
 
             <StatusBar style="auto" />
 
-            {/* <Image source={} /> */}
+            <Image  />
+            {/* adicionar imagem */}
 
             <Text>Email</Text>
             <TextInput
