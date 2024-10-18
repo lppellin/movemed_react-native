@@ -1,26 +1,14 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { CommonActions, NavigationProp } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
-import { Button, Text } from "react-native";
+import { Button, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "../components/Header";
 
 export default function Home({ navigation }: { navigation: NavigationProp<any> }) {
 
 
-    const handleLogout = async () => {
-        await AsyncStorage.removeItem('userProfile');
-        await AsyncStorage.removeItem('userName');
 
-        console.log('user logged out');
-
-        navigation.dispatch(
-            CommonActions.reset({
-                index: 0,
-                routes: [{ name: 'Login' }],
-            })
-        );
-    };
 
 
     return (
@@ -28,12 +16,45 @@ export default function Home({ navigation }: { navigation: NavigationProp<any> }
 
             <StatusBar style="auto" />
 
-            <Header />
+            <Header navigation={navigation} />
 
-            <Text>Home</Text>
 
-            <Button title="logout" onPress={handleLogout} />
+            <View style={styles.card}>
+
+                <Image />
+
+                <Text>Estoque</Text>
+                <TouchableOpacity style={styles.btn}>
+                    <Text>Gerenciar</Text>
+                </TouchableOpacity>
+            </View>
+
+
+            <View style={styles.card}>
+
+                <Image />
+
+                <Text>Usuários</Text>
+                <TouchableOpacity style={styles.btn}>
+                    <Text>Gerenciar</Text>
+                </TouchableOpacity>
+            </View>
+
 
         </SafeAreaView>
     );
 }
+
+const styles = StyleSheet.create({
+    card: {
+        backgroundColor: '#fff',
+        padding: 20,
+        marginVertical: 8,
+        marginHorizontal: 16,
+        borderRadius: 10,
+    },
+
+    btn: {
+        backgroundColor: '#cecece',
+    }
+})
