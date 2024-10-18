@@ -8,9 +8,6 @@ import Header from "../components/Header";
 export default function Home({ navigation }: { navigation: NavigationProp<any> }) {
 
 
-
-
-
     return (
         <SafeAreaView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 
@@ -24,7 +21,9 @@ export default function Home({ navigation }: { navigation: NavigationProp<any> }
                 <Image />
 
                 <Text>Estoque</Text>
-                <TouchableOpacity style={styles.btn}>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('Estoque')}
+                    style={styles.btn}>
                     <Text>Gerenciar</Text>
                 </TouchableOpacity>
             </View>
@@ -35,7 +34,9 @@ export default function Home({ navigation }: { navigation: NavigationProp<any> }
                 <Image />
 
                 <Text>Usuários</Text>
-                <TouchableOpacity style={styles.btn}>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('Usuarios')}
+                    style={styles.btn}>
                     <Text>Gerenciar</Text>
                 </TouchableOpacity>
             </View>
