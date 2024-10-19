@@ -1,16 +1,33 @@
+import axios from "axios";
+import { useState } from "react";
 import { Image, StyleSheet, Switch, Text, View } from "react-native";
 
-interface User {
+export interface User {
     name: string
+    id: number
+    status: number
 }
 
+export default function UserCard({ user }: { user: User }) {
 
-export default function UserCard({ item }: { item: User }) {
+    const [enabled, setEnabled] = useState(user.status === 1);
+
+
+    const handleSwitch = async () => {
+        const newStatus = enabled ? 0 : 1;
+        try {
+            await axios.patch(`${process.env.EXPO_PUBLIC_API_URL}/users/${user.id}/toggle-status`, { status: newStatus });
+            setEnabled(!enabled); // Alterna o estado do switch
+        } catch (error) {
+            console.error('Erro ao atualizar o status:', error);
+        }
+    };
+
     return (
-        <View style={styles.card}>
+        <View style={[styles.card, enabled ? styles.activeCard : styles.inactiveCard]}>
             <Image />
-            <Switch />
-            <Text>{item.name}</Text>
+            <Switch value={enabled} onValueChange={handleSwitch} />
+            <Text>{user.name}</Text>
         </View>
     )
 
@@ -23,6 +40,18 @@ const styles = StyleSheet.create({
         marginVertical: 8,
         marginHorizontal: 16,
         borderRadius: 10,
+    },
+
+    activeCard: {
+        backgroundColor: '#baf5bd',
+        borderColor: 'green',
+        borderWidth: 2,
+    },
+
+    inactiveCard: {
+        backgroundColor: '#fcb1b1',
+        borderColor: 'darkred',
+        borderWidth: 2,
     },
 
 
