@@ -43,14 +43,14 @@ const styles = StyleSheet.create({
     },
 
     activeCard: {
-        backgroundColor: '#baf5bd',
+        // backgroundColor: '#baf5bd',
         borderColor: 'green',
         borderWidth: 2,
     },
 
     inactiveCard: {
-        backgroundColor: '#fcb1b1',
-        borderColor: 'darkred',
+        // backgroundColor: '#fcb1b1',
+        borderColor: 'red',
         borderWidth: 2,
     },
 
