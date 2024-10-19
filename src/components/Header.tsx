@@ -23,8 +23,7 @@ export default function Header({ navigation }: { navigation: NavigationProp<any>
 
 
     useEffect(() => {
-        AsyncStorage.getItem('userProfile').then(setUserName)
-        //verificar se fica userProfile mesmo
+        AsyncStorage.getItem('userName').then(setUserName)
 
     }, []);
 
@@ -32,7 +31,7 @@ export default function Header({ navigation }: { navigation: NavigationProp<any>
 
     return (
         <View style={styles.header}>
-            
+
             <Image />
             {/* adicionar imagem */}
 

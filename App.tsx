@@ -5,6 +5,7 @@ import Login from './src/screens/Login';
 import Home from './src/screens/Home';
 import Estoque from './src/screens/Estoque';
 import Usuarios from './src/screens/Usuarios';
+import CadastrarUsuario from './src/screens/CadastrarUsuario';
 
 const Stack = createStackNavigator()
 
@@ -37,6 +38,11 @@ export default function App() {
           options={{ headerShown: false }}
         />
 
+        <Stack.Screen
+          name="CadastrarUsuario"
+          component={CadastrarUsuario}
+          options={{ headerShown: false }}
+        />
 
 
       </Stack.Navigator>

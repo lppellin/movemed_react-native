@@ -29,11 +29,12 @@ export default function Login({ navigation }: { navigation: NavigationProp<any> 
 
 
     function handleLogin() {
+        console.log('pressed')
         axios.post(process.env.EXPO_PUBLIC_API_URL + '/login', {
-            email,
-            password
-            // email: 'admin@gmail.com',
-            // password: '123456'
+            // email,
+            // password
+            email: 'admin@gmail.com',
+            password: '123456'
         })
             .then(async (response) => {
                 console.log(response.data);
