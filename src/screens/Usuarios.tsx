@@ -1,12 +1,15 @@
 import axios from "axios";
+import { CommonActions, NavigationProp } from "@react-navigation/native";
+
 import { useEffect, useState } from "react";
 import { FlatList, Image, StyleSheet, Switch, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import UserCard from "../components/UserCard";
+import UserCard, { User } from "../components/UserCard";
 
-export default function Usuarios() {
+export default function Usuarios({ navigation }: { navigation: NavigationProp<any> }) {
 
-    const [users, setUsers] = useState([]);
+    const [users, setUsers] = useState<User[]>([]);
+
 
     useEffect(() => {
         axios
@@ -26,7 +29,9 @@ export default function Usuarios() {
         <SafeAreaView>
             <Text>Usuarios</Text>
 
-            <TouchableOpacity style={styles.btn}>
+            <TouchableOpacity 
+            onPress={() => navigation.navigate('CadastrarUsuario')}
+            style={styles.btn}>
                 <Text>Novo usuário</Text>
             </TouchableOpacity>
 
@@ -40,8 +45,8 @@ export default function Usuarios() {
 
             <FlatList
                 data={users}
-                keyExtractor={item => item.id}
-                renderItem={({ item }) => <UserCard item={item} />}
+                keyExtractor={user => user.id.toString()}
+                renderItem={({ item }) => <UserCard user={item} />}
 
                 ListEmptyComponent={
                     <Text>Nenhum dado encontrado.</Text>
