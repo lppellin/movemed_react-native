@@ -2,6 +2,7 @@ import { Picker } from "@react-native-picker/picker";
 import axios from "axios";
 import { useState } from "react";
 import { Alert, Image, KeyboardAvoidingView, Platform, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default function CadastrarUsuario() {
 
@@ -57,9 +58,11 @@ export default function CadastrarUsuario() {
             console.error(error);
             Alert.alert('Erro ao cadastrar o usuário!');
         }
-
-
     }
+    
+ // Definindo os ícones com base no perfil selecionado
+ const motoristaIconColor = profile === 'motorista' ? '#304ed6' : '#ccc';
+ const filialIconColor = profile === 'filial' ? '#304ed6' : '#ccc';
 
     return (
 
@@ -84,6 +87,20 @@ export default function CadastrarUsuario() {
                         </Picker>
                     </View>
 
+                    <View style={styles.iconRow}>
+                        <Icon
+                            name="directions-car"
+                            size={50}
+                            color={motoristaIconColor} // Cor controlada pela lógica de seleção
+                            style={styles.icon}
+                        />
+                        <Icon
+                            name="business"
+                            size={50}
+                            color={filialIconColor} // Cor controlada pela lógica de seleção
+                            style={styles.icon}
+                        />
+                    </View>
 
                     <View>
                         <Text> {profile === 'motorista' ? 'CPF' : 'CNPJ'}</Text>
@@ -181,5 +198,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
 
+    iconRow: {
+        flexDirection: 'row', // Ícones lado a lado
+        justifyContent: 'center', // Centraliza os ícones horizontalmente
+        marginVertical: 20, // Aumenta a separação vertical
+    },
 
+    icon: {
+        marginHorizontal: 20, // Aumenta o espaçamento entre os ícones
+    },
 });
