@@ -2,10 +2,13 @@ import axios from "axios";
 import { useState } from "react";
 import { Image, StyleSheet, Switch, Text, View } from "react-native";
 
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
 export interface User {
     name: string
     id: number
     status: number
+    profile: 'motorista' | 'filial'
 }
 
 export default function UserCard({ user }: { user: User }) {
@@ -23,9 +26,11 @@ export default function UserCard({ user }: { user: User }) {
         }
     };
 
+    const iconName = user.profile === 'motorista' ? 'directions-car' : 'business';
+
     return (
         <View style={[styles.card, enabled ? styles.activeCard : styles.inactiveCard]}>
-            <Image />
+            <Icon name={iconName} size={50} color={'#ccc'} style={styles.icon} />
             <Switch value={enabled} onValueChange={handleSwitch} />
             <Text>{user.name}</Text>
         </View>
@@ -43,16 +48,16 @@ const styles = StyleSheet.create({
     },
 
     activeCard: {
-        backgroundColor: '#baf5bd',
+        // backgroundColor: '#baf5bd',
         borderColor: 'green',
         borderWidth: 2,
     },
 
     inactiveCard: {
-        backgroundColor: '#fcb1b1',
-        borderColor: 'darkred',
+        // backgroundColor: '#fcb1b1',
+        borderColor: 'red',
         borderWidth: 2,
     },
-
-
+    
+   
 })

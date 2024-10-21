@@ -1,7 +1,7 @@
 import axios from "axios";
-import { CommonActions, NavigationProp } from "@react-navigation/native";
+import { CommonActions, NavigationProp, useFocusEffect } from "@react-navigation/native";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FlatList, Image, StyleSheet, Switch, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import UserCard, { User } from "../components/UserCard";
@@ -11,17 +11,20 @@ export default function Usuarios({ navigation }: { navigation: NavigationProp<an
     const [users, setUsers] = useState<User[]>([]);
 
 
-    useEffect(() => {
-        axios
-            .get(process.env.EXPO_PUBLIC_API_URL + '/users')
-            .then((response) => {
-                setUsers(response.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }, []);
+    useFocusEffect(
+        React.useCallback(() => {
+            const fetchUsers = async () => {
+                try {
+                    const response = await axios.get(process.env.EXPO_PUBLIC_API_URL + '/users');
+                    setUsers(response.data);
+                } catch (error) {
+                    console.log(error);
+                }
+            };
 
+            fetchUsers();
+        }, [])
+    );
 
 
 
@@ -34,14 +37,6 @@ export default function Usuarios({ navigation }: { navigation: NavigationProp<an
             style={styles.btn}>
                 <Text>Novo usuário</Text>
             </TouchableOpacity>
-
-
-            {/* <View style={styles.card}>
-                <Image />
-                <Switch />
-                <Text>Nome</Text>
-            </View> */}
-
 
             <FlatList
                 data={users}
