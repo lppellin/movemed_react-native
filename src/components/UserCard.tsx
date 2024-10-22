@@ -58,6 +58,10 @@ const styles = StyleSheet.create({
         borderColor: 'red',
         borderWidth: 2,
     },
-    
-   
+
+    icon: {
+        marginRight: 10,
+    },
+
+
 })
