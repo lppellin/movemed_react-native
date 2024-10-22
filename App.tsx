@@ -6,13 +6,19 @@ import Home from './src/screens/Home';
 import Estoque from './src/screens/Estoque';
 import Usuarios from './src/screens/Usuarios';
 import CadastrarUsuario from './src/screens/CadastrarUsuario';
+import ListaMovimentacoes from './src/screens/ListaMovimentacoes';
+import NovaMovimentacao from './src/screens/NovaMovimentacao';
 
 const Stack = createStackNavigator()
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Login'>
+      <Stack.Navigator
+
+        // voltar pra tela de login depois
+        initialRouteName='ListaMovimentacoes'>
+
 
         <Stack.Screen
           name="Login"
@@ -42,6 +48,18 @@ export default function App() {
           name="CadastrarUsuario"
           component={CadastrarUsuario}
           options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="ListaMovimentacoes"
+          component={ListaMovimentacoes}
+        // options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="NovaMovimentacao"
+          component={NovaMovimentacao}
+          // options={{ headerShown: false }}
         />
 
 
