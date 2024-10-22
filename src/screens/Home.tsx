@@ -1,7 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { CommonActions, NavigationProp } from "@react-navigation/native";
+import { NavigationProp } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
-import { Button, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "../components/Header";
 

@@ -10,7 +10,7 @@ export default function Usuarios({ navigation }: { navigation: NavigationProp<an
 
     const [users, setUsers] = useState<User[]>([]);
 
-
+    //atualização dinamica toda vez que abre a tela
     useFocusEffect(
         React.useCallback(() => {
             const fetchUsers = async () => {
@@ -32,9 +32,9 @@ export default function Usuarios({ navigation }: { navigation: NavigationProp<an
         <SafeAreaView>
             <Text>Usuarios</Text>
 
-            <TouchableOpacity 
-            onPress={() => navigation.navigate('CadastrarUsuario')}
-            style={styles.btn}>
+            <TouchableOpacity
+                onPress={() => navigation.navigate('CadastrarUsuario')}
+                style={styles.btn}>
                 <Text>Novo usuário</Text>
             </TouchableOpacity>
 
