@@ -14,27 +14,50 @@ export default function Login({ navigation }: { navigation: NavigationProp<any> 
     useEffect(() => {
         const checkLoginStatus = async () => {
             const userProfile = await AsyncStorage.getItem('userProfile');
+            console.log('userProfile:', userProfile);
             if (userProfile) {
-                // Se o perfil do usuário estiver armazenado, redirecionar para a tela Home
-                navigation.dispatch(
-                    CommonActions.reset({
-                        index: 0,
-                        routes: [{ name: 'Home' }],
-                    })
-                );
+                try {
+                    let routeName = '';
+                    switch (userProfile) {
+                        case 'filial':
+                            routeName = 'ListaMovimentacoes';
+                            break;
+                        case 'admin':
+                            routeName = 'Home';
+                            break;
+                        case 'motorista':
+                            routeName = 'TelaMotorista';
+                            break;
+                        default:
+                            routeName = 'Login';
+                            break;
+                    }
+                    if (routeName !== 'Login') {
+                        navigation.dispatch(
+                            CommonActions.reset({
+                                index: 0,
+                                routes: [{ name: routeName }],
+                            })
+                        );
+                    }
+                } catch (error) {
+                    console.error('Erro ao obter o perfil do usuaário', error);
+                    navigation.navigate('Login');
+                }
+            } else {
+                navigation.navigate('Login');
             }
         };
-        checkLoginStatus(); // Chamar a função para verificar o status de login
+        checkLoginStatus();
     }, []);
-
 
     function handleLogin() {
         console.log('pressed')
         axios.post(process.env.EXPO_PUBLIC_API_URL + '/login', {
-            // email,
-            // password
-            email: 'admin@gmail.com',
-            password: '123456'
+            email,
+            password
+            // email: 'admin@gmail.com',
+            // password: '123456'
         })
             .then(async (response) => {
                 console.log(response.data);
@@ -58,9 +81,23 @@ export default function Login({ navigation }: { navigation: NavigationProp<any> 
 
                 } else if (response.data.profile === 'filial') {
                     console.log('filial logado')
+                    navigation.dispatch(
+                        CommonActions.reset({
+                            index: 0,
+                            routes: [
+                                { name: 'ListaMovimentacoes' },
+                            ],
+                        })
+                    )
 
                 } else {
                     console.log('motorista logado')
+
+
+
+                    // AJUSTAR QUANDO FIZER A TELA DO MOTORISTA 
+
+
                 }
 
             })
@@ -77,7 +114,7 @@ export default function Login({ navigation }: { navigation: NavigationProp<any> 
 
             <StatusBar style="auto" />
 
-            <Image  />
+            <Image />
             {/* adicionar imagem */}
 
             <Text>Email</Text>
@@ -85,6 +122,7 @@ export default function Login({ navigation }: { navigation: NavigationProp<any> 
                 style={styles.input}
                 value={email}
                 onChangeText={setEmail}
+                keyboardType="email-address"
             />
 
             <Text>Senha</Text>

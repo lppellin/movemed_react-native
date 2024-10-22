@@ -16,8 +16,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
 
-        // voltar pra tela de login depois
-        initialRouteName='ListaMovimentacoes'>
+        initialRouteName='Login'>
 
 
         <Stack.Screen
