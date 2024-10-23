@@ -5,14 +5,8 @@ import React, { useEffect, useState } from "react";
 import { FlatList, Image, StyleSheet, Switch, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-interface Product {
-    id: number;
-    product_name: string;
-    branch_name: string;
-    quantity: number;
-    description: string;
-    image_url: string;
-}
+import { Product } from "../interfaces/Product";
+
 
 export default function ProductList() {
     const [products, setProducts] = useState<Product[]>([]);
