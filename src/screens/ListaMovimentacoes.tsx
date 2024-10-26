@@ -1,6 +1,6 @@
 import { FlatList } from "react-native";
 import { SafeAreaView, Text, Touchable, TouchableOpacity, View } from "react-native";
-import MovimentacaoCard from "../components/MovimentacaoCard";
+import MovimentacaoCard, { Movimentacao } from "../components/MovimentacaoCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "../components/Header";
@@ -8,7 +8,7 @@ import { NavigationProp } from "@react-navigation/native";
 
 export default function ListaMovimentacoes({ navigation }: { navigation: NavigationProp<any> }) {
 
-    const [movements, setMovements] = useState([]);
+    const [movements, setMovements] = useState<Movimentacao>([]);
 
     useEffect(() => {
         const fetchMovements = async () => {
@@ -29,7 +29,7 @@ export default function ListaMovimentacoes({ navigation }: { navigation: Navigat
             <Header navigation={navigation} />
 
             <TouchableOpacity
-            onPress={() => navigation.navigate('NovaMovimentacao')}
+                onPress={() => navigation.navigate('NovaMovimentacao')}
             >
                 <Text>Adicionar Movimentação</Text>
             </TouchableOpacity>
@@ -38,7 +38,7 @@ export default function ListaMovimentacoes({ navigation }: { navigation: Navigat
             <FlatList
                 data={movements}
                 keyExtractor={item => item.id.toString()}
-                renderItem={({ item }) => <MovimentacaoCard item={item} />}
+                renderItem={({ item }) => <MovimentacaoCard movimentacao={item} />}
 
                 ListEmptyComponent={
                     <Text>Nenhum dado encontrado.</Text>
