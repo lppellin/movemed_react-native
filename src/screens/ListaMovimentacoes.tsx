@@ -1,36 +1,36 @@
-import { FlatList } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
 import { SafeAreaView, Text, Touchable, TouchableOpacity, View } from "react-native";
 import MovimentacaoCard, { Movimentacao } from "../components/MovimentacaoCard";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import Header from "../components/Header";
-import { NavigationProp } from "@react-navigation/native";
+import { NavigationProp, useFocusEffect } from "@react-navigation/native";
 
 export default function ListaMovimentacoes({ navigation }: { navigation: NavigationProp<any> }) {
 
     const [movements, setMovements] = useState<Movimentacao>([]);
 
-    useEffect(() => {
-        const fetchMovements = async () => {
-            try {
-                const response = await axios.get(process.env.EXPO_PUBLIC_API_URL + '/movements');
-                setMovements(response.data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
+    useFocusEffect(
+        useCallback(() => {
+            const fetchMovements = async () => {
+                try {
+                    const response = await axios.get(process.env.EXPO_PUBLIC_API_URL + '/movements');
+                    setMovements(response.data);
+                } catch (error) {
+                    console.log(error);
+                }
+            };
 
-        fetchMovements();
-    }, [])
+            fetchMovements();
+        }, [])
+    )
 
 
     return (
-        <SafeAreaView>
+        <SafeAreaView style={{ flex: 1 }}>
             <Header navigation={navigation} />
 
-            <TouchableOpacity
-                onPress={() => navigation.navigate('NovaMovimentacao')}
-            >
+            <TouchableOpacity onPress={() => navigation.navigate('NovaMovimentacao')}>
                 <Text>Adicionar Movimentação</Text>
             </TouchableOpacity>
 
@@ -53,3 +53,15 @@ export default function ListaMovimentacoes({ navigation }: { navigation: Navigat
         </SafeAreaView>
     )
 }
+
+const styles = StyleSheet.create({
+    card: {
+        backgroundColor: '#fff',
+        padding: 20,
+        marginVertical: 8,
+        marginHorizontal: 16,
+        borderRadius: 10,
+        borderWidth: 1,
+    }
+
+})
