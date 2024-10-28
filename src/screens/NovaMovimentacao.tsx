@@ -163,12 +163,12 @@ export default function NovaMovimentacao() {
                 <TextInput
                     keyboardType="numeric"
                     value={quantity.toString()}
-                    onChangeText={value => setQuantity(parseInt(value))}
-                    placeholder="Digite a quantidade"
+                    onChangeText={value => setQuantity(value === "" ? 0 : parseInt(value))}
+                    // placeholder="Digite a quantidade"
                     style={styles.input}
                 />
 
-                {/* ------------------------------------------------- CORRIGIR LAYOUT */}
+                {/* ------------------------------------------------- CORRIGIR LAYOUT observacoes e button>touchable*/}
 
                 <Text>Observações</Text>
                 <TextInput
