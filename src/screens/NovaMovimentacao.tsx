@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import axios from "axios";
 
@@ -168,7 +168,6 @@ export default function NovaMovimentacao() {
                     style={styles.input}
                 />
 
-                {/* ------------------------------------------------- CORRIGIR LAYOUT observacoes e button>touchable*/}
 
                 <Text>Observações</Text>
                 <TextInput
@@ -180,9 +179,14 @@ export default function NovaMovimentacao() {
                     style={styles.inputObs}
                 />
 
-                <Button title="Cadastrar" onPress={handleSubmit} />
 
-                {/* CORRIGIR LAYOUT -------------------------------------------------------*/}
+                <TouchableOpacity
+                    onPress={handleSubmit}
+                    style={styles.button}
+                >
+                    <Text style={styles.buttonText}>Cadastrar</Text>
+                </TouchableOpacity>
+
 
             </ScrollView>
         </SafeAreaView>
@@ -212,6 +216,20 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         padding: 10,
         textAlignVertical: 'top',
+    },
+    button: {
+        alignItems: "center",
+        alignSelf: "center",
+        backgroundColor: "green",
+        padding: 10,
+        margin: 12,
+        borderRadius: 10,
+        height: 60,
+        width: 200,
+    },
+    buttonText: {
+        color: "white",
+        fontSize: 18,
     },
 
 
