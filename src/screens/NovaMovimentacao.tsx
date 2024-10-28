@@ -177,7 +177,7 @@ export default function NovaMovimentacao() {
                     placeholder=""
                     value={description}
                     onChangeText={setDescription}
-                    style={styles.input}
+                    style={styles.inputObs}
                 />
 
                 <Button title="Cadastrar" onPress={handleSubmit} />
@@ -200,9 +200,20 @@ const styles = StyleSheet.create({
         height: 40,
         margin: 12,
         borderWidth: 1,
+        borderRadius: 10,
         padding: 10,
-        width: 200
+        width: 60,
+        textAlign: 'center',
     },
+    inputObs: {
+        height: 80,
+        margin: 12,
+        borderWidth: 1,
+        borderRadius: 10,
+        padding: 10,
+        textAlignVertical: 'top',
+    },
+
 
 
 });
