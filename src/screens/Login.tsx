@@ -12,6 +12,8 @@ export default function Login({ navigation }: { navigation: NavigationProp<any> 
 
 
     useEffect(() => {
+
+        // verifica se o usuario está logado e direciona para a tela correta
         const checkLoginStatus = async () => {
             const userProfile = await AsyncStorage.getItem('userProfile');
             console.log('userProfile:', userProfile);
@@ -26,7 +28,7 @@ export default function Login({ navigation }: { navigation: NavigationProp<any> 
                             routeName = 'Home';
                             break;
                         case 'motorista':
-                            routeName = 'TelaMotorista';
+                            routeName = 'ListaMotorista';
                             break;
                         default:
                             routeName = 'Login';

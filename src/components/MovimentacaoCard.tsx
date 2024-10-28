@@ -1,21 +1,34 @@
 import { StyleSheet, Text, View } from "react-native";
 
-interface Movimentacao {
+export interface Movimentacao {
     id: number;
-    origin: string;
-    destination: string;
-    product: string;
-    status: string;
+    produto: {
+        nome: string;
+    };
+    quantidade: number;
+    // status: string;
+    origem: {
+        nome: string;
+    };
+    destino: {
+        nome: string;
+    };
 }
 
-export default function MovimentacaoCard() {
+interface MovimentacaoCardProps {
+    movimentacao: Movimentacao;
+}
+
+export default function MovimentacaoCard({ movimentacao }: MovimentacaoCardProps) {
     return (
         <View style={styles.card}>
-            <Text>#</Text>
-            <Text>Origem:</Text>
-            <Text>Destino:</Text>
-            <Text>Produto:</Text>
-            <Text>Status:</Text>
+            <Text># {movimentacao.id} </Text>
+            <Text>Origem:{movimentacao.origem.nome}</Text>
+            <Text>Destino:{movimentacao.destino.nome}</Text>
+            <Text>Produto:{movimentacao.produto.nome}</Text>
+            <Text>Quantidade:{movimentacao.quantidade}</Text>
+            <Text>Status: Aguardando coleta</Text>
+            {/* <Text>Status:{movimentacao.status}</Text> */}
 
         </View>
     )
