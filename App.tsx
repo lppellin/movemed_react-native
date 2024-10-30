@@ -8,6 +8,8 @@ import Usuarios from './src/screens/Usuarios';
 import CadastrarUsuario from './src/screens/CadastrarUsuario';
 import ListaMovimentacoes from './src/screens/ListaMovimentacoes';
 import NovaMovimentacao from './src/screens/NovaMovimentacao';
+import ListaMovMotorista from './src/screens/ListaMovMotorista';
+import Mapa from './src/screens/Mapa';
 
 const Stack = createStackNavigator()
 
@@ -52,13 +54,25 @@ export default function App() {
         <Stack.Screen
           name="ListaMovimentacoes"
           component={ListaMovimentacoes}
-        // options={{ headerShown: false }}
+          options={{ headerShown: false }}
         />
 
         <Stack.Screen
           name="NovaMovimentacao"
           component={NovaMovimentacao}
-          // options={{ headerShown: false }}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="ListaMovMotorista"
+          component={ListaMovMotorista}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="Mapa"
+          component={Mapa}
+          options={{ headerShown: false }}
         />
 
 

@@ -4,6 +4,7 @@ export interface Movimentacao {
     id: number;
     produto: {
         nome: string;
+        imagem: string;
     };
     quantidade: number;
     // status: string;
@@ -13,6 +14,7 @@ export interface Movimentacao {
     destino: {
         nome: string;
     };
+    status: string;
 }
 
 interface MovimentacaoCardProps {

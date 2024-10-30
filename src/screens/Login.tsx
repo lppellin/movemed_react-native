@@ -28,7 +28,7 @@ export default function Login({ navigation }: { navigation: NavigationProp<any> 
                             routeName = 'Home';
                             break;
                         case 'motorista':
-                            routeName = 'ListaMotorista';
+                            routeName = 'ListaMovMotorista';
                             break;
                         default:
                             routeName = 'Login';
@@ -94,12 +94,14 @@ export default function Login({ navigation }: { navigation: NavigationProp<any> 
 
                 } else {
                     console.log('motorista logado')
-
-
-
-                    // AJUSTAR QUANDO FIZER A TELA DO MOTORISTA 
-
-
+                    navigation.dispatch(
+                        CommonActions.reset({
+                            index: 0,
+                            routes: [
+                                { name: 'ListaMovMotorista' },
+                            ],
+                        })
+                    )
                 }
 
             })
