@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import Header from "../components/Header";
 import { NavigationProp, useFocusEffect } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
 
 export default function ListaMovimentacoes({ navigation }: { navigation: NavigationProp<any> }) {
 
@@ -28,12 +29,10 @@ export default function ListaMovimentacoes({ navigation }: { navigation: Navigat
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
+
+            <StatusBar style="auto" />
+
             <Header navigation={navigation} />
-
-            <TouchableOpacity onPress={() => navigation.navigate('NovaMovimentacao')}>
-                <Text>Adicionar Movimentação</Text>
-            </TouchableOpacity>
-
 
             <FlatList
                 data={movements}
@@ -43,25 +42,35 @@ export default function ListaMovimentacoes({ navigation }: { navigation: Navigat
                 ListEmptyComponent={
                     <Text>Nenhum dado encontrado.</Text>
                 }
-
-
             />
-
-            {/* <MovimentacaoCard /> */}
-
+            <TouchableOpacity
+                style={styles.btn}
+                onPress={() => navigation.navigate('NovaMovimentacao')}
+            >
+                <Text style={styles.buttonText}>Adicionar Movimentação</Text>
+            </TouchableOpacity>
 
         </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
-    card: {
-        backgroundColor: '#fff',
-        padding: 20,
-        marginVertical: 8,
-        marginHorizontal: 16,
+
+
+    btn: {
+        alignItems: "center",
+        textAlignVertical: "center",
+        justifyContent: 'center',
+        alignSelf: "center",
+        backgroundColor: "green",
+        margin: 8,
         borderRadius: 10,
-        borderWidth: 1,
-    }
+        height: 50,
+        width: 250,
+    },
+    buttonText: {
+        color: "white",
+        textAlignVertical: "center",
+    },
 
 })

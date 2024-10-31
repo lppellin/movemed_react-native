@@ -7,6 +7,7 @@ import axios from "axios";
 import { Camera } from "react-native-maps";
 import * as ImagePicker from 'expo-image-picker';
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { StatusBar } from "expo-status-bar";
 
 
 export default function ListaMovMotorista({ navigation }: { navigation: NavigationProp<any> }) {
@@ -121,13 +122,18 @@ export default function ListaMovMotorista({ navigation }: { navigation: Navigati
 
             <View style={styles.cardHeader}>
                 <Image source={{ uri: item.produto.imagem }} style={styles.image} />
-                <View style={{ gap: 5 }}>
+
+                <View style={{ gap: 5, width: 220 }}>
                     <Text>
-                        <Text style={{ fontWeight: "bold" }}>Produto: </Text>
-                        {item.produto.nome}</Text>
+                        <Text
+                            numberOfLines={3}
+                            style={{ fontWeight: "bold" }}>Produto: </Text>
+                        {item.produto.nome}
+                    </Text>
                     <Text>
                         <Text style={{ fontWeight: "bold" }}>Quantidade: </Text>
-                        {item.quantidade}</Text>
+                        {item.quantidade}
+                    </Text>
                     <Text>
                         <Text style={{ fontWeight: "bold" }}>Status: </Text>
                         {item.status}
@@ -149,7 +155,7 @@ export default function ListaMovMotorista({ navigation }: { navigation: Navigati
                 {item.status === "created" && (
                     <TouchableOpacity
                         onPress={() => handleStartDelivery(item.id)}
-                        style={styles.button}
+                        style={styles.btn}
                     >
                         <Text style={{ color: 'white' }}>Iniciar Entrega</Text>
                     </TouchableOpacity>
@@ -158,7 +164,7 @@ export default function ListaMovMotorista({ navigation }: { navigation: Navigati
                 {item.status === "em transito" && (
                     <TouchableOpacity
                         onPress={() => handleFisnishDelivery(item.id)}
-                        style={styles.button}
+                        style={styles.btn}
                     >
                         <Text style={{ color: 'white' }}>Finalizar Entrega</Text>
                     </TouchableOpacity>
@@ -166,7 +172,7 @@ export default function ListaMovMotorista({ navigation }: { navigation: Navigati
 
                 {(item.status === "created" || item.status === "em transito") && (
                     <TouchableOpacity onPress={() => navigation.navigate("Mapa", { origem: item.origem, destino: item.destino })}
-                        style={styles.button}
+                        style={styles.btn}
                     >
                         <Text style={{ color: 'white' }}>Ver Mapa</Text>
                     </TouchableOpacity>
@@ -177,11 +183,13 @@ export default function ListaMovMotorista({ navigation }: { navigation: Navigati
     );
 
     return (
-        <SafeAreaView>
+        <SafeAreaView style={styles.container}>
+
+            <StatusBar style="auto" />
 
             <Header navigation={navigation} />
             <Text
-                style={{ fontSize: 18, fontWeight: "bold", textAlign: "center", marginVertical: 8 }}
+                style={{ fontSize: 18, fontWeight: "bold", textAlign: "center", marginBottom: 8 }}
             >
                 Movimentações
             </Text>
@@ -202,7 +210,6 @@ export default function ListaMovMotorista({ navigation }: { navigation: Navigati
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 16,
     },
     card: {
         padding: 16,
@@ -233,7 +240,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-around",
         marginTop: 8,
     },
-    button: {
+    btn: {
         backgroundColor: "green",
         padding: 8,
         borderRadius: 8,
@@ -244,6 +251,7 @@ const styles = StyleSheet.create({
         marginBottom: 8,
         gap: 8,
         alignItems: "center",
+        // overflow: "scroll",
 
     },
 

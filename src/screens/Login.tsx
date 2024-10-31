@@ -3,7 +3,7 @@ import { CommonActions, NavigationProp } from "@react-navigation/native";
 import axios from "axios";
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
-import { Alert, Image, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity } from "react-native";
+import { Alert, Image, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 export default function Login({ navigation }: { navigation: NavigationProp<any> }) {
 
@@ -118,27 +118,36 @@ export default function Login({ navigation }: { navigation: NavigationProp<any> 
 
             <StatusBar style="auto" />
 
-            <Image />
-            {/* adicionar imagem */}
-
-            <Text>Email</Text>
-            <TextInput
-                style={styles.input}
-                value={email}
-                onChangeText={setEmail}
-                keyboardType="email-address"
+            <Image
+                source={require('../../assets/logo-removebg-preview.png')}
+                style={{ width: 230, height: 230, marginBottom: 20 }}
             />
 
-            <Text>Senha</Text>
-            <TextInput
-                style={styles.input}
-                value={password}
-                onChangeText={setPassword}
-                secureTextEntry
-            />
+            <View >
+                <Text style={{ marginLeft: 10 }}>Email:</Text>
+                <TextInput
+                    style={styles.input}
+                    value={email}
+                    onChangeText={setEmail}
+                    keyboardType="email-address"
+                />
 
-            <TouchableOpacity onPress={handleLogin}  >
-                <Text>Login</Text>
+                <Text style={{ marginLeft: 10 }}
+                >
+                    Senha:
+                </Text>
+                <TextInput
+                    style={styles.input}
+                    value={password}
+                    onChangeText={setPassword}
+                    secureTextEntry
+                />
+            </View>
+
+            <TouchableOpacity
+                style={styles.btn}
+                onPress={handleLogin}  >
+                <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
 
 
@@ -152,6 +161,22 @@ const styles = StyleSheet.create({
         margin: 12,
         borderWidth: 1,
         padding: 10,
-        width: 200
+        width: 250,
+        borderRadius: 8
+    },
+
+    btn: {
+        alignItems: "center",
+        justifyContent: 'center',
+        backgroundColor: "green",
+        padding: 10,
+        margin: 8,
+        borderRadius: 10,
+        height: 50,
+        width: 150,
+    },
+    buttonText: {
+        color: "white",
+        fontSize: 18,
     },
 });

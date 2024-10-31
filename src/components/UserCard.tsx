@@ -31,8 +31,8 @@ export default function UserCard({ user }: { user: User }) {
     return (
         <View style={[styles.card, enabled ? styles.activeCard : styles.inactiveCard]}>
             <Icon name={iconName} size={50} color={'#ccc'} style={styles.icon} />
-            <Switch value={enabled} onValueChange={handleSwitch} />
             <Text>{user.name}</Text>
+            <Switch value={enabled} onValueChange={handleSwitch} />
         </View>
     )
 
@@ -41,10 +41,15 @@ export default function UserCard({ user }: { user: User }) {
 const styles = StyleSheet.create({
     card: {
         backgroundColor: '#fff',
-        padding: 20,
+        padding: 18,
         marginVertical: 8,
-        marginHorizontal: 16,
         borderRadius: 10,
+        flexDirection: 'row',
+        alignItems: 'center',
+        alignSelf: 'center',
+        width: '80%',
+        justifyContent: 'space-between',
+
     },
 
     activeCard: {

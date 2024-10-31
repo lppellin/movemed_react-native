@@ -29,16 +29,22 @@ export default function Usuarios({ navigation }: { navigation: NavigationProp<an
 
 
     return (
-        <SafeAreaView>
-            <Text>Usuarios</Text>
+        <SafeAreaView style={{ flex: 1 }}>
 
-            <TouchableOpacity
-                onPress={() => navigation.navigate('CadastrarUsuario')}
-                style={styles.btn}>
-                <Text>Novo usuário</Text>
-            </TouchableOpacity>
+            <View style={styles.header}>
+
+                <Text style={styles.title}>Usuários</Text>
+
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('CadastrarUsuario')}
+                    style={styles.btn}>
+                    <Text style={styles.buttonText}>Novo usuário</Text>
+                </TouchableOpacity>
+
+            </View>
 
             <FlatList
+                showsVerticalScrollIndicator={false} // Oculta a barra de rolagem
                 data={users}
                 keyExtractor={user => user.id.toString()}
                 renderItem={({ item }) => <UserCard user={item} />}
@@ -56,15 +62,31 @@ export default function Usuarios({ navigation }: { navigation: NavigationProp<an
 }
 
 const styles = StyleSheet.create({
-    card: {
-        backgroundColor: '#fff',
-        padding: 20,
-        marginVertical: 8,
-        marginHorizontal: 16,
-        borderRadius: 10,
+    header: {
+        flexDirection: "row",
+        marginLeft: 40,
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: 10,
+        backgroundColor: "#f0f0f0",
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: "bold",
     },
 
     btn: {
-        backgroundColor: '#cecece',
-    }
+        alignItems: "center",
+        justifyContent: 'center',
+        backgroundColor: "green",
+        padding: 10,
+        margin: 8,
+        borderRadius: 10,
+        height: 50,
+        width: 120,
+    },
+    buttonText: {
+        color: "white",
+    },
+
 })

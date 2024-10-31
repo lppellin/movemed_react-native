@@ -101,7 +101,7 @@ const Mapa = ({ route }: { route: RouteProp<RouteParams, 'params'> }) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 1,      
     },
     map: {
         width: "100%",
