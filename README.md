@@ -1,8 +1,8 @@
-**Movemed**
+# **Movemed**
 
 O Movemed é uma solução desenvolvida para facilitar e gerenciar o processo de transferências de medicamentos e produtos entre as filiais de uma rede de farmácias. Este aplicativo simplifica o monitoramento das movimentações, permitindo melhor controle e transparência no transporte e entrega dos produtos.
 
-**Tecnologias e Técnicas Utilizadas**
+## **Tecnologias e Técnicas Utilizadas**
 * React Native: React Hooks para controle de estado e efeitos, componentes personalizados, Stack Navigator para navegação entre telas.
 * Async Storage: Armazenamento local para dados do usuário logado.
 * Axios: Consumo da API para requisições HTTP.
@@ -11,44 +11,43 @@ O Movemed é uma solução desenvolvida para facilitar e gerenciar o processo de
 * Layout ajustado para iOS e Android.
 * Postman para testes de conexão com a API.
 
-**Fluxograma das Telas**
-A navegação é baseada no tipo de usuário logado
-![01](https://github.com/user-attachments/assets/663e2d1b-3a06-41e2-92d8-dc3b3a7524e6)
+## **Fluxograma**  
+A navegação é baseada no tipo de usuário logado  
+
+<img src="https://github.com/user-attachments/assets/663e2d1b-3a06-41e2-92d8-dc3b3a7524e6" alt="img" width="300">
 
 
-Administrador  
+### Administrador  
 O administrador tem permissão para ver a lista de produtos e gerenciar os usuários motoristas e filiais, podendo cadastrar, desativar e ativar conforme necessário.
-![02](https://github.com/user-attachments/assets/f2aae737-491b-49d4-a293-46f3f1dbc292)
 
-![03](https://github.com/user-attachments/assets/9f3b81e6-56f6-4242-b9c8-712c7f4227b4)
+<img src="https://github.com/user-attachments/assets/f2aae737-491b-49d4-a293-46f3f1dbc292" alt="img" width="300">
 
-![04](https://github.com/user-attachments/assets/5e188d3d-fe2d-49b5-b86b-4a7c35164f17)
+<img src="https://github.com/user-attachments/assets/9f3b81e6-56f6-4242-b9c8-712c7f4227b4" alt="img" width="300">
+
+<img src="https://github.com/user-attachments/assets/5e188d3d-fe2d-49b5-b86b-4a7c35164f17" alt="img" width="300">
+
+<img src="https://github.com/user-attachments/assets/f9bb39c4-86e6-4e71-ae3b-7f73cf74e703" alt="img" width="300">
+
+<img src="https://github.com/user-attachments/assets/bf1ed23e-9f6c-427e-91f7-e66ead991c49" alt="img" width="300">
 
 
-![05](https://github.com/user-attachments/assets/f9bb39c4-86e6-4e71-ae3b-7f73cf74e703)
-
-![06](https://github.com/user-attachments/assets/bf1ed23e-9f6c-427e-91f7-e66ead991c49)
-
-
-Filiais  
+### Filiais  
 As filiais tem acesso ao cadastro e visualização das movimentações.
-![07](https://github.com/user-attachments/assets/946d550e-547b-4139-adbe-9b7a69cc09ac)
 
-![08](https://github.com/user-attachments/assets/bd597fde-fd79-430c-8d31-8a5194a1872f)
+<img src="https://github.com/user-attachments/assets/946d550e-547b-4139-adbe-9b7a69cc09ac" alt="img" width="300">
+
+<img src="https://github.com/user-attachments/assets/bd597fde-fd79-430c-8d31-8a5194a1872f" alt="img" width="300">
 
 
-Motoristas  
+### Motoristas  
 Os motoristas tem acesso à lista de movimentações criadas pelas filiais, com opções relacionadas ao status de entrega de cada movimentação, além da visualização da rota no mapa.
 
-![09](https://github.com/user-attachments/assets/eac98a92-3fd0-4e76-9571-f83da714b53b)
+<img src="https://github.com/user-attachments/assets/eac98a92-3fd0-4e76-9571-f83da714b53b" alt="img" width="300">
+
+<img src="https://github.com/user-attachments/assets/d24a1a1b-b598-4f22-b85f-bbef6c614742" alt="img" width="300">
 
 
-![10](https://github.com/user-attachments/assets/d24a1a1b-b598-4f22-b85f-bbef6c614742)
-
-
-
-
-**Como Executar**  
+## **Como Executar**  
 Certifique-se de ter o **NodeJS** previamente instalado (e o Android Studio caso use o emulador, ou o aplicativo Expo Go instalado no seu smartphone)
 Vamos aos passos:
 * Clone o repositório
@@ -67,7 +66,7 @@ https://github.com/DEVinHouse-Clamed-V3/template_m1
 * Inicie o servidor com **npm start**
 
 
-**Melhorias Futuras**
+## **Melhorias Futuras**
 * Modo Escuro (Dark Mode): Implementar um tema escuro para melhorar a acessibilidade.
 * Custom Picker: Desenvolver um seletor customizado para consistência visual entre Android e iOS, especialmente na tela de cadastro de usuários.
 * Validação de Email: Adicionar um campo para validação de email ao cadastrar novos usuários.
