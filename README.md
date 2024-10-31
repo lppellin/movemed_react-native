@@ -12,7 +12,41 @@ O Movemed é uma solução desenvolvida para facilitar e gerenciar o processo de
 * Postman para testes de conexão com a API.
 
 **Fluxograma das Telas**
-(Adicionar imagem do fluxograma das telas para melhor compreensão da estrutura do aplicativo)
+A navegação é baseada no tipo de usuário logado
+![01](https://github.com/user-attachments/assets/663e2d1b-3a06-41e2-92d8-dc3b3a7524e6)
+
+
+Administrador  
+O administrador tem permissão para ver a lista de produtos e gerenciar os usuários motoristas e filiais, podendo cadastrar, desativar e ativar conforme necessário.
+![02](https://github.com/user-attachments/assets/f2aae737-491b-49d4-a293-46f3f1dbc292)
+
+![03](https://github.com/user-attachments/assets/9f3b81e6-56f6-4242-b9c8-712c7f4227b4)
+
+![04](https://github.com/user-attachments/assets/5e188d3d-fe2d-49b5-b86b-4a7c35164f17)
+
+
+![05](https://github.com/user-attachments/assets/f9bb39c4-86e6-4e71-ae3b-7f73cf74e703)
+
+![06](https://github.com/user-attachments/assets/bf1ed23e-9f6c-427e-91f7-e66ead991c49)
+
+
+Filiais  
+As filiais tem acesso ao cadastro e visualização das movimentações.
+![07](https://github.com/user-attachments/assets/946d550e-547b-4139-adbe-9b7a69cc09ac)
+
+![08](https://github.com/user-attachments/assets/bd597fde-fd79-430c-8d31-8a5194a1872f)
+
+
+Motoristas  
+Os motoristas tem acesso à lista de movimentações criadas pelas filiais, com opções relacionadas ao status de entrega de cada movimentação, além da visualização da rota no mapa.
+
+![09](https://github.com/user-attachments/assets/eac98a92-3fd0-4e76-9571-f83da714b53b)
+
+
+![10](https://github.com/user-attachments/assets/d24a1a1b-b598-4f22-b85f-bbef6c614742)
+
+
+
 
 **Como Executar**  
 Certifique-se de ter o **NodeJS** previamente instalado (e o Android Studio caso use o emulador, ou o aplicativo Expo Go instalado no seu smartphone)
