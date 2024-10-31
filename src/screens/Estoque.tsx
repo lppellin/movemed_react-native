@@ -45,7 +45,7 @@ export default function ProductList() {
             <View style={styles.searchContainer}>
                 <TextInput
                     style={styles.input}
-                    placeholder="Pesquise um produto ou uma filial"
+                    placeholder="Pesquise um produto ou filial"
                     value={searchTerm}
                     onChangeText={setSearchTerm}
                 />
@@ -55,6 +55,7 @@ export default function ProductList() {
             </View>
 
             <FlatList
+                showsVerticalScrollIndicator={false}
                 data={filteredProducts}
                 keyExtractor={item => item.id.toString()}
                 renderItem={({ item }) => (
@@ -93,10 +94,10 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#ccc',
         padding: 8,
-        borderRadius: 5,
+        borderRadius: 8,
     },
     searchButton: {
-        backgroundColor: '#007bff',
+        backgroundColor: 'green',
         padding: 10,
         marginLeft: 8,
         borderRadius: 5,
@@ -110,15 +111,16 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         padding: 16,
         marginVertical: 8,
-        borderRadius: 10,
-        borderColor: '#ddd',
+        borderRadius: 16,
+        borderColor: '#ccc',
         borderWidth: 1,
     },
     image: {
-        width: 80,
-        height: 80,
+        width: 90,
+        height: 90,
         borderRadius: 10,
         marginRight: 16,
+        alignSelf: 'center',
     },
     infoContainer: {
         flex: 1,

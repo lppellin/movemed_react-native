@@ -72,7 +72,6 @@ export default function App() {
         <Stack.Screen
           name="Mapa"
           component={Mapa}
-          options={{ headerShown: false }}
         />
 
 

@@ -7,6 +7,7 @@ import { ProductOptions } from "../interfaces/ProductOptions";
 import { BranchOptions } from "../interfaces/BranchOptions";
 import { Button } from "react-native";
 import { Alert } from "react-native";
+import { StatusBar } from "expo-status-bar";
 
 export default function NovaMovimentacao() {
 
@@ -115,78 +116,82 @@ export default function NovaMovimentacao() {
 
 
     return (
-        <SafeAreaView>
+        <SafeAreaView style={styles.container}>
+
+            <Text style={styles.title}>Nova Movimentação</Text>
 
             <ScrollView>
+                <View style={styles.card}>
 
-                <Text>Nova Movimentação</Text>
-
-                <Text>Origem</Text>
-                <Picker
-                    selectedValue={originBranch}
-                    onValueChange={handleOriginBranchChange}
-                >
-                    <Picker.Item label="Selecione a filial" value="" />
-                    {branches.map(item => (
-                        <Picker.Item key={item.id} label={item.name} value={item.id} />
-                    ))}
-                </Picker>
-
-
-                <Text>Destino</Text>
-                <Picker
-                    selectedValue={destinationBranch}
-                    onValueChange={setDestinationBranch}
-                >
-                    <Picker.Item label="Selecione a filial" value="" />
-                    {branches.map(item => (
-                        <Picker.Item key={item.id} label={item.name} value={item.id} />
-                    ))}
-                </Picker>
+                    <Text style={styles.subtitle}>Origem</Text>
+                    <Picker
+                        selectedValue={originBranch}
+                        onValueChange={handleOriginBranchChange}
+                    >
+                        <Picker.Item label="Selecione a filial" value="" />
+                        {branches.map(item => (
+                            <Picker.Item key={item.id} label={item.name} value={item.id} />
+                        ))}
+                    </Picker>
 
 
-                <Text>Produto</Text>
-                <Picker
-                    selectedValue={selectedProduct}
-                    onValueChange={handleProductChange}
-                >
-                    <Picker.Item label="Selecione o produto" value="" />
-                    {products.map(item => (
-                        <Picker.Item key={item.product_id} label={item.product_name} value={item.product_id} />
-                    ))}
-                </Picker>
-
-                <Text>Disponível: {availableQuantity}</Text>
-                {/* quantidade disponivel do produto na filial de origem */}
-
-                <Text>Quantidade:</Text>
-                <TextInput
-                    keyboardType="numeric"
-                    value={quantity.toString()}
-                    onChangeText={value => setQuantity(value === "" ? 0 : parseInt(value))}
-                    // placeholder="Digite a quantidade"
-                    style={styles.input}
-                />
+                    <Text style={styles.subtitle}>Destino</Text>
+                    <Picker
+                        selectedValue={destinationBranch}
+                        onValueChange={setDestinationBranch}
+                    >
+                        <Picker.Item label="Selecione a filial" value="" />
+                        {branches.map(item => (
+                            <Picker.Item key={item.id} label={item.name} value={item.id} />
+                        ))}
+                    </Picker>
 
 
-                <Text>Observações</Text>
-                <TextInput
-                    multiline
-                    numberOfLines={4}
-                    placeholder=""
-                    value={description}
-                    onChangeText={setDescription}
-                    style={styles.inputObs}
-                />
+                    <Text style={styles.subtitle}>Produto</Text>
+                    <Picker
+                        selectedValue={selectedProduct}
+                        onValueChange={handleProductChange}
+                    >
+                        <Picker.Item label="Selecione o produto" value="" />
+                        {products.map(item => (
+                            <Picker.Item key={item.product_id} label={item.product_name} value={item.product_id} />
+                        ))}
+                    </Picker>
+
+                    <Text style={{ marginLeft: 16 }}>Disponível: {availableQuantity}</Text>
+                    {/* quantidade disponivel do produto na filial de origem */}
+
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <Text style={styles.subtitle}>Quantidade desejada:</Text>
+                        <TextInput
+                            keyboardType="numeric"
+                            value={quantity.toString()}
+                            onChangeText={value => setQuantity(value === "" ? 0 : parseInt(value))}
+                            // placeholder="Digite a quantidade"
+                            style={styles.input}
+                        />
+                    </View>
+
+
+                    <Text>Observações</Text>
+                    <TextInput
+                        multiline
+                        numberOfLines={4}
+                        placeholder=""
+                        value={description}
+                        onChangeText={setDescription}
+                        style={styles.inputObs}
+                    />
+
+                </View>
 
 
                 <TouchableOpacity
                     onPress={handleSubmit}
-                    style={styles.button}
+                    style={styles.btn}
                 >
                     <Text style={styles.buttonText}>Cadastrar</Text>
                 </TouchableOpacity>
-
 
             </ScrollView>
         </SafeAreaView>
@@ -198,6 +203,19 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexGrow: 1, //  permite que o ScrollView cresça conforme necessário
+        marginTop: 30,
+        backgroundColor: '#fff',
+    },
+
+    card: {
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderRadius: 16,
+        padding: 16,
+        width: '90%',
+        alignSelf: 'center',
+        backgroundColor: '#f1f1f1',
+
     },
 
     input: {
@@ -208,18 +226,21 @@ const styles = StyleSheet.create({
         padding: 10,
         width: 60,
         textAlign: 'center',
+        fontSize: 16,
     },
     inputObs: {
         height: 80,
         margin: 12,
         borderWidth: 1,
         borderRadius: 10,
+        borderColor: '#ccc',
         padding: 10,
         textAlignVertical: 'top',
     },
-    button: {
+    btn: {
         alignItems: "center",
         alignSelf: "center",
+        justifyContent: 'center',
         backgroundColor: "green",
         padding: 10,
         margin: 12,
@@ -230,6 +251,18 @@ const styles = StyleSheet.create({
     buttonText: {
         color: "white",
         fontSize: 18,
+    },
+
+    title: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        alignSelf: 'center',
+        marginVertical: 12,
+    },
+
+    subtitle: {
+        fontSize: 16,
+        fontWeight: 'bold',
     },
 
 
