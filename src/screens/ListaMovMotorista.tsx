@@ -101,6 +101,7 @@ export default function ListaMovMotorista({ navigation }: { navigation: Navigati
                 name: `delivery_${id}.jpg`,
                 type: "image/jpeg"
             } as any);
+            formData.append("motorista", motorista);
             try {
                 await axios.put(`${process.env.EXPO_PUBLIC_API_URL}/movements/${id}/end`, formData, {
                     headers: {
