@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { Picker } from "@react-native-picker/picker";
+import RNPickerSelect from 'react-native-picker-select';
 import axios from "axios";
 
 import { ProductOptions } from "../interfaces/ProductOptions";
@@ -124,39 +125,32 @@ export default function NovaMovimentacao() {
                 <View style={styles.card}>
 
                     <Text style={styles.subtitle}>Origem</Text>
-                    <Picker
-                        selectedValue={originBranch}
+                    <RNPickerSelect
+                        placeholder={{ label: "Selecione a filial", value: null }}
+                        value={originBranch}
                         onValueChange={handleOriginBranchChange}
-                    >
-                        <Picker.Item label="Selecione a filial" value="" />
-                        {branches.map(item => (
-                            <Picker.Item key={item.id} label={item.name} value={item.id} />
-                        ))}
-                    </Picker>
-
+                        items={branches.map(branch => ({ label: branch.name, value: branch.id }))}
+                        style={picker}
+                    />
 
                     <Text style={styles.subtitle}>Destino</Text>
-                    <Picker
-                        selectedValue={destinationBranch}
+                    <RNPickerSelect
+                        placeholder={{ label: "Selecione a filial", value: null }}
+                        value={destinationBranch}
                         onValueChange={setDestinationBranch}
-                    >
-                        <Picker.Item label="Selecione a filial" value="" />
-                        {branches.map(item => (
-                            <Picker.Item key={item.id} label={item.name} value={item.id} />
-                        ))}
-                    </Picker>
+                        items={branches.map(branch => ({ label: branch.name, value: branch.id }))}
+                        style={picker}
+                    />
 
 
                     <Text style={styles.subtitle}>Produto</Text>
-                    <Picker
-                        selectedValue={selectedProduct}
+                    <RNPickerSelect
+                        placeholder={{ label: "Selecione o produto", value: null }}
+                        value={selectedProduct}
                         onValueChange={handleProductChange}
-                    >
-                        <Picker.Item label="Selecione o produto" value="" />
-                        {products.map(item => (
-                            <Picker.Item key={item.product_id} label={item.product_name} value={item.product_id} />
-                        ))}
-                    </Picker>
+                        items={products.map(product => ({ label: product.product_name, value: product.product_id }))}
+                        style={picker}
+                    />
 
                     <Text style={{ marginLeft: 16 }}>Disponível: {availableQuantity}</Text>
                     {/* quantidade disponivel do produto na filial de origem */}
@@ -267,4 +261,24 @@ const styles = StyleSheet.create({
 
 
 
+});
+
+const picker = StyleSheet.create({
+    inputIOS: {
+        fontSize: 16,
+        paddingVertical: 12,
+        paddingHorizontal: 12,
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderRadius: 8,
+        marginVertical: 12,
+    },
+    inputAndroid: {
+        fontSize: 16,
+        paddingHorizontal: 10,
+        paddingVertical: 8,
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderRadius: 8,
+    },
 });
