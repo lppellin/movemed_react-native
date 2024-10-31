@@ -1,11 +1,11 @@
+import { useCallback, useState } from "react";
 import { FlatList, StyleSheet } from "react-native";
-import { SafeAreaView, Text, Touchable, TouchableOpacity, View } from "react-native";
-import MovimentacaoCard, { Movimentacao } from "../components/MovimentacaoCard";
-import { useCallback, useEffect, useState } from "react";
-import axios from "axios";
-import Header from "../components/Header";
-import { NavigationProp, useFocusEffect } from "@react-navigation/native";
+import { SafeAreaView, Text, TouchableOpacity } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import { NavigationProp, useFocusEffect } from "@react-navigation/native";
+import axios from "axios";
+import MovimentacaoCard, { Movimentacao } from "../components/MovimentacaoCard";
+import Header from "../components/Header";
 
 export default function ListaMovimentacoes({ navigation }: { navigation: NavigationProp<any> }) {
 
@@ -16,7 +16,8 @@ export default function ListaMovimentacoes({ navigation }: { navigation: Navigat
             const fetchMovements = async () => {
                 try {
                     const response = await axios.get(process.env.EXPO_PUBLIC_API_URL + '/movements');
-                    setMovements(response.data);
+                    const sortedMovements = response.data.sort((a, b) => a.id - b.id); // Ordena pelo id em ordem crescente
+                    setMovements(sortedMovements);
                 } catch (error) {
                     console.log(error);
                 }

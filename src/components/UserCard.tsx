@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { Image, StyleSheet, Switch, Text, View } from "react-native";
+import { StyleSheet, Switch, Text, View } from "react-native";
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 

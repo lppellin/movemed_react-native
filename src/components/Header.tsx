@@ -1,7 +1,7 @@
-import { Button, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { CommonActions, NavigationProp } from "@react-navigation/native";
 import { useEffect, useState } from "react";
+import {StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { CommonActions, NavigationProp } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
