@@ -12,7 +12,7 @@ O Movemed é uma solução desenvolvida para facilitar e gerenciar o processo de
 * Postman para testes de conexão com a API.
 
 ## **Fluxograma**  
-A navegação é baseada no tipo de usuário logado  
+A navegação é baseada no tipo de usuário logado, ao fazer login cada usuário é direcionado ao seu fluxo específico.
 
 <img src="https://github.com/user-attachments/assets/663e2d1b-3a06-41e2-92d8-dc3b3a7524e6" alt="img" width="300">
 
