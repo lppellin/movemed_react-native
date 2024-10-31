@@ -1,9 +1,9 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { CommonActions, NavigationProp } from "@react-navigation/native";
-import axios from "axios";
-import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
 import { Alert, Image, SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import { CommonActions, NavigationProp } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from "axios";
 
 export default function Login({ navigation }: { navigation: NavigationProp<any> }) {
 

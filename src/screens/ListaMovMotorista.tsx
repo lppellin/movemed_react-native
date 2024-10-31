@@ -1,14 +1,13 @@
-import { Alert, Button, FlatList, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import Header from "../components/Header";
-import { NavigationProp, useFocusEffect } from "@react-navigation/native";
-import { useCallback, useRef, useState } from "react";
-import { Movimentacao } from "../components/MovimentacaoCard";
-import axios from "axios";
-import { Camera } from "react-native-maps";
-import * as ImagePicker from 'expo-image-picker';
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useCallback, useState } from "react";
+import { Alert, FlatList, Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import { NavigationProp, useFocusEffect } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from "axios";
+import * as ImagePicker from 'expo-image-picker';
+import { Movimentacao } from "../components/MovimentacaoCard";
 
+import Header from "../components/Header";
 
 export default function ListaMovMotorista({ navigation }: { navigation: NavigationProp<any> }) {
 
@@ -16,15 +15,14 @@ export default function ListaMovMotorista({ navigation }: { navigation: Navigati
     const [movements, setMovements] = useState<Movimentacao[]>([]);
     const [motorista, setMotorista] = useState("");
 
-    // const [camera, setCamera] = useState<Camera | null>(null);
-    // const cameraRef = useRef<Camera>(null);
+  
 
 
     const fetchMotorista = async () => {
         const storedMotorista = await AsyncStorage.getItem("userName");
         if (storedMotorista) setMotorista(storedMotorista);
     };
-    // console.log("Motorista:", motorista);
+
 
 
     const fetchMovements = async () => {

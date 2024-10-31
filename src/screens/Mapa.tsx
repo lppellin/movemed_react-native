@@ -1,10 +1,9 @@
-import { useFocusEffect } from "@react-navigation/native";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { View, StyleSheet } from "react-native";
-import MapView, { Marker, Polyline } from "react-native-maps";
+import MapView, { Marker } from "react-native-maps";
 import MapViewDirections from "react-native-maps-directions";
-
 import { RouteProp } from "@react-navigation/native";
+
 
 type RouteParams = {
     params: {
@@ -101,7 +100,7 @@ const Mapa = ({ route }: { route: RouteProp<RouteParams, 'params'> }) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,      
+        flex: 1,
     },
     map: {
         width: "100%",

@@ -1,14 +1,9 @@
 import { useEffect, useState } from "react";
-import { SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
-import { Picker } from "@react-native-picker/picker";
+import { Alert, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import RNPickerSelect from 'react-native-picker-select';
 import axios from "axios";
-
 import { ProductOptions } from "../interfaces/ProductOptions";
 import { BranchOptions } from "../interfaces/BranchOptions";
-import { Button } from "react-native";
-import { Alert } from "react-native";
-import { StatusBar } from "expo-status-bar";
 
 export default function NovaMovimentacao() {
 

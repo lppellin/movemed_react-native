@@ -1,10 +1,7 @@
-import axios from "axios";
-import { CommonActions, NavigationProp, useFocusEffect } from "@react-navigation/native";
-
-import React, { useEffect, useState } from "react";
-import { FlatList, Image, StyleSheet, Switch, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { useEffect, useState } from "react";
+import { FlatList, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
+import axios from "axios";
 import { Product } from "../interfaces/Product";
 
 

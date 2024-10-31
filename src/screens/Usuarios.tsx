@@ -1,9 +1,8 @@
-import axios from "axios";
-import { CommonActions, NavigationProp, useFocusEffect } from "@react-navigation/native";
-
-import React, { useEffect, useState } from "react";
-import { FlatList, Image, StyleSheet, Switch, Text, TouchableOpacity, View } from "react-native";
+import React, { useState } from "react";
+import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { NavigationProp, useFocusEffect } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import axios from "axios";
 import UserCard, { User } from "../components/UserCard";
 
 export default function Usuarios({ navigation }: { navigation: NavigationProp<any> }) {
