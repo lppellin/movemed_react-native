@@ -30,7 +30,8 @@ export default function ListaMovMotorista({ navigation }: { navigation: Navigati
     const fetchMovements = async () => {
         try {
             const response = await axios.get(`${process.env.EXPO_PUBLIC_API_URL}/movements`);
-            setMovements(response.data);
+            const sortedMovements = response.data.sort((a, b) => a.id - b.id); // Ordena pelo id em ordem crescente
+            setMovements(sortedMovements);
         } catch (error) {
             console.error("Erro ao buscar movimentações:", error);
         }
