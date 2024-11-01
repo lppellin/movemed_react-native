@@ -76,8 +76,8 @@ https://github.com/DEVinHouse-Clamed-V3/template_m1
 
 ### Anexos:
 
-Link do quadro no Trello: https://trello.com/b/XhYSqOFb
+Quadro no Trello: https://trello.com/b/XhYSqOFb
 
-Link do vídeo de apresentação: https://drive.google.com/file/d/1U-h10FlnUnJ2LtOIE4HdvvM7126JMT9t/view?usp=sharing
+Vídeo de apresentação: https://drive.google.com/file/d/1U-h10FlnUnJ2LtOIE4HdvvM7126JMT9t/view?usp=sharing
 
-Link da apresentação no Canva: https://www.canva.com/design/DAGVLpvoWWw/VeLKx26SN2tdnjijlm59Sg/view?utm_content=DAGVLpvoWWw&utm_campaign=designshare&utm_medium=link&utm_source=editor
+Apresentação no Canva: https://www.canva.com/design/DAGVLpvoWWw/VeLKx26SN2tdnjijlm59Sg/view?utm_content=DAGVLpvoWWw&utm_campaign=designshare&utm_medium=link&utm_source=editor
