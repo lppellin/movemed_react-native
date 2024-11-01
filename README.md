@@ -74,6 +74,10 @@ https://github.com/DEVinHouse-Clamed-V3/template_m1
 * Personalização de Cards: Alterar a cor dos cards de usuários conforme o tipo (Motorista ou Filial) para facilitar a identificação.
 * Tela de Entregas: Implementar uma visualização do histórico das movimentações e progresso da rota em tempo real para o usuário.
 
+### Anexos:
+
 Link do quadro no Trello: https://trello.com/b/XhYSqOFb
 
-LINK DO VIDEO DE APRESENTAÇÃO
+Link do vídeo de apresentação: https://drive.google.com/file/d/1FC67ALvfwYuVPrQKZ4VOdy_Np3C_YwMY/view?usp=sharing
+
+Link da apresentação no Canva: https://www.canva.com/design/DAGVLpvoWWw/i1a2HY994vp4riHIIMmPsg/edit?utm_content=DAGVLpvoWWw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
