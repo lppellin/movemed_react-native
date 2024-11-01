@@ -70,6 +70,7 @@ https://github.com/DEVinHouse-Clamed-V3/template_m1
 * Modo Escuro (Dark Mode): Implementar um tema escuro para melhorar a acessibilidade.
 * Custom Picker: Desenvolver um seletor customizado para consistência visual entre Android e iOS, especialmente na tela de cadastro de usuários.
 * Validação de Email: Adicionar um campo para validação de email ao cadastrar novos usuários.
+* Melhorar o layout da tela de listagem de usuários.
 * Personalização de Cards: Alterar a cor dos cards de usuários conforme o tipo (Motorista ou Filial) para facilitar a identificação.
 * Tela de Entregas: Implementar uma visualização do histórico das movimentações e progresso da rota em tempo real para o usuário.
 
