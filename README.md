@@ -80,4 +80,4 @@ Link do quadro no Trello: https://trello.com/b/XhYSqOFb
 
 Link do vídeo de apresentação: https://drive.google.com/file/d/1FC67ALvfwYuVPrQKZ4VOdy_Np3C_YwMY/view?usp=sharing
 
-Link da apresentação no Canva: https://www.canva.com/design/DAGVLpvoWWw/i1a2HY994vp4riHIIMmPsg/edit?utm_content=DAGVLpvoWWw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+Link da apresentação no Canva: https://www.canva.com/design/DAGVLpvoWWw/VeLKx26SN2tdnjijlm59Sg/view?utm_content=DAGVLpvoWWw&utm_campaign=designshare&utm_medium=link&utm_source=editor
