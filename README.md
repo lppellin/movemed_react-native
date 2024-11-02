@@ -54,7 +54,7 @@ Vamos aos passos:
 * Abra no seu terminal de preferência (ou já na IDE) e instale as dependências com **npm install**
 * Abra o projeto na sua IDE de preferência (caso não tenha já aberto no passo anterior) 
 * Configure o **IP local** da sua máquina no arquivo **.env** para permitir o acesso pelo Expo, deixe a porta 3000
-* Execute o app usando o **npx expo start** no terminal
+* Execute o app usando o **npx expo start** no terminal  
 Agora escolha a plataforma de sua preferência para visualizar o aplicativo:
 * **Dispositivo físico (Android ou iOS)**: Abra o aplicativo **Expo Go** no seu dispositivo e escaneie o código QR gerado pelo **npx expo start** para rodar o app.
 * **Emulador Android**: Após o comando **npx expo start**, pressione a tecla “**a**” para abrir o emulador do Android Studio para testar o app.
